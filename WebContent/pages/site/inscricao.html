@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Site da Twister HRC">
+<meta name="keywords"
+	content="Honda, Twister, HRC, Honda Racing Corporation">
+<meta name="author" content="Diego Martins de Oliveira">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Twister HRC</title>
+<link rel="stylesheet" type="text/css" href="../../css/site.css">
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+  <script src="../../js/site.js"></script>
+<script src="../../js/inscricao.js"></script>
+</head>
+<body>
+	<header>
+	</header>
+	<nav>
+	</nav>
+	<section>
+		<h2 class="tituloInscricao">Inscreva-se no fã clube!</h2>
+		<p>Quer fazer parte do fã clube da Twister HRC? Preencha este
+			formulário!</p>
+		<form name="frminscricao" method="post" action="#" onsubmit="return validaInscricao()">
+			<fieldset class="inscricao">
+				<legend>Dados pessoais:</legend>
+				<label for="nome">Nome: </label> <input type="text" name="txtnome"
+					id="nome"> <label for="fone">Telefone: </label> <input
+					type="text" name="txtfone" id="fone"> <label for="email">E-mail:
+				</label> <input type="email" name="txtemail" id="email">
+				<div>
+					<br> <label for="diaa">Data de nascimento:</label> <input
+						type="date" id="dia" name="nascimento"><br>
+					<br>
+					<p class="txtgenero">Selecione seu gênero:</p>
+					<br> <input type="radio" id="genmasc" name="selgenero"
+						value="genmasc"> <label for="genmasc">Masculino</label><br>
+					<input type="radio" id="genfem" name="selgenero" value="genfem">
+					<label for="genfem">Feminino</label><br>
+					<br>
+				</div>
+				<label for="comentario">Comentário: </label>
+				<textarea name="txacomentario" id="comentario"></textarea>
+				<input type="checkbox" id="participa" name="participa"> <label
+					for="participa">Desejo participar do fã clube da Twister
+					HRC</label><br>
+				<br>
+				<button type="reset">Limpar</button>
+				<button type="submit" onclick="FACLUBE.inscricao.cadastrar()">Enviar</button>
+			</fieldset>
+		</form>
+	</section>
+	<footer></footer>
+</body>
+</html>

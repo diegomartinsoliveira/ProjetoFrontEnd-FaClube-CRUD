@@ -1,0 +1,233 @@
+@charset "UTF-8";
+
+/* Configuração geral do corpo da página */
+body {
+	margin: 0px auto;
+	font-family: "Century Gothic", sans-serif;
+}
+
+/***************************
+Configurações gerais 
+****************************/
+
+/* Cabeçalho */
+
+header {
+	height: 116px;
+	width: 650px;
+	float: center;	
+}
+
+header img {
+	float: left;
+	height: 100px;
+	width: 150px;
+	margin: 10px;
+ 	position: relative;
+   	left: 380px;
+   	top: 50px;
+
+}
+
+header h1 {
+	float: left;
+	margin: 5px 0px 30px;
+	font-size: 80px;
+	font-weight: bold;
+	color: #ff0000;
+	font-family: impact;
+	text-shadow: 5px 10px 2px #000000;	
+ 	width: 500px;
+ 	position: relative;
+   	left: 570px;
+   	top: -70px;
+}
+
+/* Menu */
+nav {
+	clear: both;
+ 	width: 800px;
+ 	position: relative;
+   	left: 490px;
+   	top: -70px;
+}
+
+nav a {
+	color: white;
+	text-decoration: none;
+	text-align: center;
+	
+}
+
+nav .opcao {
+	float: left;
+	width: 15%;
+	background-color: #ff4545;
+	padding: 5px 0;
+	margin: 0 1%;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+nav .opcao:hover {
+	background-color: #ff4545;
+}
+
+#menu {
+	
+	padding: 0px 0px;
+}
+
+/* Área geral para conteúdos específicos de cada página */
+section {
+	clear: both;
+	min-height: 391px;
+	width: 100%;
+	margin-top: 0px;
+	padding: 2px 0px;
+	background-color: #d3d3d3;
+}
+
+/* Rodapé */
+footer {
+	background-color: #000000;
+	color: #fff;
+	text-align: center;
+	padding: 6px;
+}
+
+.twisterPhoto {
+	height: 350px;
+	width: 450px;
+	border-radius: 50%;
+	float: right;
+	margin: 50px 124px 40px;;
+	
+}
+
+section #titulos {
+	float: left;
+	height: 250px;
+	width: 650px;
+	margin: 0px auto;
+}
+
+h2 {
+	font-size: 70px;
+	font-weight: bold;
+	text-align: center;
+}
+
+h3 {
+	text-align: center;
+	font-size: 30px;
+	font-weight: bold;
+	color: #ff0000;
+	text-shadow: 1px 1px 1px #000000;
+	margin: 10px 80px;
+}
+
+section p {
+	clear: both;
+	text-align: center;
+	margin: 10px 80px;
+
+}
+
+.tabelaAcessorios {
+	margin: 10px auto;
+	text-align: center;
+}
+
+.tituloTabela {
+	text-align: center;
+	font-size: 30px;
+	font-weight: bold;
+	color: #fff;
+	padding: 5px;
+	border: transparent;
+}
+
+.tituloAcessorios {
+	font-size: 40px;
+	font-weight: bold;
+	text-align: center;
+	
+}
+
+.tituloInscricao {
+	font-size: 40px;
+	font-weight: bold;
+	text-align: center;
+}
+
+tr, td, th {
+	border: 1px solid #B0C4DE;
+	padding: 5px;
+}
+
+tr, td {
+	font-size: 14px;
+}
+
+tr:nth-child(even) {
+	background-color: #ff4545;
+}
+
+tr:nth-child(odd) {
+	background-color: #ff4545;
+}
+
+.inscricao {
+	width: 500px;
+	margin: 0px auto;
+	font-weight: bold;
+	margin-bottom: 5px;
+	background-color: #ff4545;
+}
+
+.inscricao textarea, .inscricao select {
+	margin: 5px auto;
+	width: 100%;
+	padding: 5px 0;
+}
+
+.inscricao input[type=text] {
+	
+	margin: 5px auto;
+	width: 100%;
+	padding: 5px 0;
+}
+
+.inscricao input[type=email] {
+	
+	margin: 5px auto;
+	width: 100%;
+	padding: 5px 0;
+}
+
+.inscricao input[type=date] {
+	
+	margin: 5px auto;
+	width: 100%;
+	padding: 5px 0;
+}
+
+.txtgenero {
+	
+	text-align: left;
+	margin: 0px auto;
+}
+
+.inscricao textarea {
+	height: 100px;
+	resize: none;
+}
+
+.inscricao button {
+	width: 30%;
+	margin: 0 10%;
+	background-color: #c0c0c0;
+	font-weight: bold;
+	font-size: 16px;
+}

@@ -1,0 +1,88 @@
+<script src="../../js/inscricao.js"></script>
+<h2>Registro de Inscrições</h2>
+<form name="frmAddInscricao" id="addInscricao" class="frmInserir">
+	<fieldset class="inscricao">
+		<legend>Nova Inscrição</legend>
+		<table>
+			<tr>
+				<th>Nome</th>
+				<td><input type="text" name="nome"></td>
+			</tr>
+			<tr>
+				<th>Telefone</th>
+				<td><input type="text" name="fone"></td>
+			</tr>
+			<tr>
+				<th>E-mail</th>
+				<td><input type="email" name="email"></td>
+			</tr>
+			<tr>
+				<th>Data de Nascimento</th>
+				<td><input type="text" name="nascimento"></td>
+			</tr>
+			<tr>
+				<th>Gênero</th>
+				<td><select name="genero">
+						<option value="">Selecione</option>
+						<option value="1">Masculino</option>
+						<option value="2">Feminino</option>
+				</select></td>
+			</tr>
+			<tr>
+				<th>Comentários</th>
+				<td><input type="text" name="comentarios"></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<button type="button" onclick="FACLUBE.inscricao.cadastrar()">Cadastrar</button>
+					<button type="reset">Limpar</button>
+				</td>
+			</tr>
+		</table>
+	</fieldset>
+</form>
+<h3>Inscrições registradas</h3>
+<form id="filtraProduto" class="frmFiltrar">
+	<fieldset class="filtro">
+		<legend>Filtrar</legend>
+		<input type="text" name="txtbusca" id="campoBuscaInscricao"
+			placeholder="Pesquise pelo modelo">
+		<button type="button" onclick="FACLUBE.inscricao.buscar()">Buscar</button>
+	</fieldset>
+</form>
+<div id="listaInscricoes" class="listaInscricoes"></div>
+<div id="modalEditaInscricao" class="modalEditar">
+	<form name="frmEditaInscricao" id="editaInscricao" class="frmEditar">
+		<table>
+			<tr>
+				<th>Nome</th>
+				<td><input type="text" name="nome"></td>
+			</tr>
+			<tr>
+				<th>Telefone</th>
+				<td><input type="text" name="fone"></td>
+			</tr>
+			<tr>
+				<th>E-mail</th>
+				<td><input type="email" name="email"></td>
+			</tr>
+			<tr>
+				<th>Data de Nascimento</th>
+				<td><input type="text" name="nascimento"></td>
+			</tr>
+			<tr>
+				<th>Gênero</th>
+				<td><select name="genero">
+						<option value="">Selecione</option>
+						<option value="1">Masculino</option>
+						<option value="2">Feminino</option>
+				</select></td>
+			</tr>
+			<tr>
+				<th>Comentários</th>
+				<td><input type="text" name="comentarios"></td>
+			</tr>
+		</table>
+		<input type="hidden" name="idInscricao">
+	</form>
+</div>
