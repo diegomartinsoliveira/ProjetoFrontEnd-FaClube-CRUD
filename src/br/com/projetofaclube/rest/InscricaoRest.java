@@ -3,6 +3,7 @@ package br.com.projetofaclube.rest;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -14,8 +15,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+
 import br.com.projetofaclube.bd.Conexao;
 import br.com.projetofaclube.jdbc.JDBCInscricaoDAO;
 import br.com.projetofaclube.modelo.Inscricao;
@@ -27,6 +30,7 @@ public class InscricaoRest extends UtilRest {
 	@Path("/inserir")
 	@Consumes("application/*")
 	public Response inserir(String inscricaoParam) {
+		System.out.println(inscricaoParam);
 
 		try {
 
@@ -39,30 +43,21 @@ public class InscricaoRest extends UtilRest {
 
 			if (retornoInscricaoDuplicada) {
 
-				Inscricao retornoInscricao = jdbcInscricao.buscarPorId(inscricao.getId());
+				boolean retorno = jdbcInscricao.inserir(inscricao);
+				conec.fecharConexao();
 
-				if (retornoInscricao.getId() != inscricao.getId()) {
+				if (retorno) {
 
-					return this.buildErrorResponse("Essa marca não existe mais, atualize a página");
+					msg = "Inscrição cadastrada com sucesso!";
 
 				} else {
 
-					boolean retorno = jdbcInscricao.inserir(inscricao);
-					conec.fecharConexao();
-
-					if (retorno) {
-
-						msg = "Inscrição cadastrada com sucesso!";
-
-					} else {
-
-						return this.buildErrorResponse("Erro ao cadastrar inscrição");
-					}
+					return this.buildErrorResponse("Erro ao cadastrar inscrição");
 				}
+
 			} else {
 
 				return this.buildErrorResponse("Este usuário já está cadastrado!");
-
 			}
 
 			return this.buildResponse(msg);
@@ -120,7 +115,7 @@ public class InscricaoRest extends UtilRest {
 
 			} else {
 
-				return this.buildErrorResponse("Erro ao excluir Inscrição.");
+				return this.buildErrorResponse("Erro ao excluir Inscrição");
 			}
 
 			return this.buildResponse(msg);
@@ -160,6 +155,7 @@ public class InscricaoRest extends UtilRest {
 	@Path("/alterar")
 	@Consumes("application/*")
 	public Response alterar(String inscricaoParam) {
+		System.out.println(inscricaoParam);
 
 		try {
 			Inscricao inscricao = new Gson().fromJson(inscricaoParam, Inscricao.class);
@@ -167,10 +163,10 @@ public class InscricaoRest extends UtilRest {
 			Connection conexao = conec.abrirConexao();
 			JDBCInscricaoDAO jdbcInscricao = new JDBCInscricaoDAO(conexao);
 
-			boolean retorno = jdbcInscricao.alterar(inscricao);
-
 			String msg = "";
+			boolean retorno = jdbcInscricao.alterar(inscricao);
 			conec.fecharConexao();
+
 			if (retorno) {
 
 				msg = "Inscrição alterado com sucesso!";

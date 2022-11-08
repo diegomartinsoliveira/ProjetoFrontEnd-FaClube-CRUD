@@ -8,10 +8,10 @@ import br.com.projetofaclube.modelo.Inscricao;
 
 public interface InscricaoDAO {
 	
-	public boolean inserir (Inscricao produto);
+	public boolean inserir (Inscricao inscricao);
 	public List<JsonObject> buscarPorNome(String nome);
 	public boolean deletar(int id);
 	public Inscricao buscarPorId(int id);
-	public boolean alterar(Inscricao produto);
+	public boolean alterar(Inscricao inscricao);
 
 }

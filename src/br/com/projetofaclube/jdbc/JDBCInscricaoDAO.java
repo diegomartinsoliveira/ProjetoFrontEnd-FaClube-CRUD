@@ -7,7 +7,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
 import com.google.gson.JsonObject;
+
 import br.com.projetofaclube.jdbcinterface.InscricaoDAO;
 import br.com.projetofaclube.modelo.Inscricao;
 
@@ -21,8 +23,7 @@ public class JDBCInscricaoDAO implements InscricaoDAO {
 
 	public boolean inserir(Inscricao inscricao) {
 
-		String comando = "INSERT INTO inscricao" + "(id, nome, telefone, email, nascimento, genero, comentario) "
-				+ "VALUES (?,?,?,?,?,?,?)";
+		String comando = "INSERT INTO inscricao" + "(id, nome, telefone, email, nascimento, genero, comentario) " + "VALUES (?,?,?,?,?,?,?)";
 		PreparedStatement p;
 
 		try {
@@ -33,11 +34,11 @@ public class JDBCInscricaoDAO implements InscricaoDAO {
 			// Substitui no comando os "?" pelos valores da inscricao
 			p.setInt(1, inscricao.getId());
 			p.setString(2, inscricao.getNome());
-			p.setFloat(3, inscricao.getTelefone());
+			p.setString(3, inscricao.getTelefone());
 			p.setString(4, inscricao.getEmail());
-			p.setFloat(5, inscricao.getNascimento());
+			p.setString(5, inscricao.getNascimento());
 			p.setString(6, inscricao.getGenero());
-			p.setString(6, inscricao.getComentario());
+			p.setString(7, inscricao.getComentario());
 
 			// Executa o comando no BD
 			p.execute();
@@ -49,20 +50,12 @@ public class JDBCInscricaoDAO implements InscricaoDAO {
 		return true;
 
 	}
-
+	
 	public List<JsonObject> buscarPorNome(String nome) {
 
 		// Inicia criação do comando SQL de busca
-		String comando = "SELECT * FROM inscricao  ";
-		// Se o nome não estiver vazio...
-		if (!nome.equals("")) {
-			// concatena no comando o WHERE buscando no nome do inscrito
-			// o texto da variável nome
-			comando += "WHERE nome LIKE '%" + nome + "%' ";
-		}
-		// Finaliza o comando ordenando alfabeticamente por
-		// categoria, marca e depois modelo.
-		comando += "ORDER BY nome ASC";
+		String comando = "SELECT * FROM inscricao WHERE nome LIKE '%" + nome + "%'";
+		
 
 		List<JsonObject> listaInscricoes = new ArrayList<JsonObject>();
 		JsonObject inscricao = null;
@@ -76,11 +69,17 @@ public class JDBCInscricaoDAO implements InscricaoDAO {
 
 				int id = rs.getInt("id");
 				nome = rs.getString("nome");
-				Float telefone = rs.getFloat("telefone");
+				String telefone = rs.getString("telefone");
 				String email = rs.getString("email");
-				float nascimento = rs.getFloat("nascimento");
+				String nascimento = rs.getString("nascimento");
 				String genero = rs.getString("genero");
 				String comentario = rs.getString("comentario");
+				
+				if (genero.equals("masculino")) {
+					genero = "Masculino";
+				} else if (genero.equals("feminino")) {
+					genero = "Feminino";
+				}
 
 				inscricao = new JsonObject();
 				inscricao.addProperty("id", id);
@@ -93,6 +92,7 @@ public class JDBCInscricaoDAO implements InscricaoDAO {
 				
 
 				listaInscricoes.add(inscricao);
+				
 
 			}
 
@@ -129,17 +129,17 @@ public class JDBCInscricaoDAO implements InscricaoDAO {
 			while (rs.next()) {
 
 				String nome = rs.getString("nome");
-				Float telefone = rs.getFloat("telefone");
+				String telefone = rs.getString("telefone");
 				String email = rs.getString("email");
-				float nascimento = rs.getFloat("nascimento");
+				String nascimento = rs.getString("nascimento");
 				String genero = rs.getString("genero");
 				String comentario = rs.getString("comentario");
 
 				inscricao.setId(id);
 				inscricao.setNome(nome);
 				inscricao.setTelefone(telefone);
-				inscricao.setNascimento(nascimento);
 				inscricao.setEmail(email);
+				inscricao.setNascimento(nascimento);
 				inscricao.setGenero(genero);
 				inscricao.setComentario(comentario);
 				
@@ -159,14 +159,15 @@ public class JDBCInscricaoDAO implements InscricaoDAO {
 
 		try {
 			p = this.conexao.prepareStatement(comando);
-			p.setInt(1, inscricao.getId());
-			p.setString(2, inscricao.getNome());
-			p.setFloat(3, inscricao.getTelefone());
-			p.setString(4, inscricao.getEmail());
-			p.setFloat(5, inscricao.getNascimento());
-			p.setString(6, inscricao.getGenero());
+			p.setString(1, inscricao.getNome());
+			p.setString(2, inscricao.getTelefone());
+			p.setString(3, inscricao.getEmail());
+			p.setString(4, inscricao.getNascimento());
+			p.setString(5, inscricao.getGenero());
 			p.setString(6, inscricao.getComentario());
+			p.setInt(7, inscricao.getId());
 			p.executeUpdate();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
@@ -187,7 +188,7 @@ public class JDBCInscricaoDAO implements InscricaoDAO {
 			
 			while(rs.next()) {
 				
-				if(rs.getString("nome").equalsIgnoreCase(inscricao.getNome()) && rs.getInt("id") == inscricao.getId()) {
+				if(rs.getString("email").equalsIgnoreCase(inscricao.getEmail())) {
 					return false;
 				}
 				
@@ -203,4 +204,5 @@ public class JDBCInscricaoDAO implements InscricaoDAO {
 		
 	}
 
+	
 }

@@ -43,7 +43,7 @@ header img {
 
 header h1 {
 	float: center;
-	margin: 30px 0 15px 30px;
+	margin: 0px 0 10px 30px;
 	font-size: 40px;
 	color: #000000;
 }
@@ -162,6 +162,17 @@ section h2, section h3 {
 	resize: none;
 }
 
+.inscricao textarea {
+	height: 100px;
+	resize: none;
+}
+
+.inscricaoEditar textarea {
+	height: 100px;
+	resize: none;
+}
+
+
 .frmInserir button, .frmFiltrar button {
 	width: 100px;
 	margin: 0 1%;
@@ -180,18 +191,18 @@ section h2, section h3 {
 }
 
 /*****   Tabela de registros   *****/
-.listaInscricoes {
+.listaRegistros {
 	margin-bottom: 10px;
 }
 
-.listaInscricoes table {
+.listaRegistros table {
 	border: 1px solid #000;
 	border-collapse: collapse;
 	margin: 0 auto;
 	min-width: 50%;
 }
 
-.listaInscricoes table th {
+.listaRegistros table th {
 	text-align: center;
 	font-size: 18px;
 	font-weight: bold;
@@ -200,38 +211,38 @@ section h2, section h3 {
 	border: transparent;
 }
 
-.listaInscricoes  tr, .listaInscricoes td, .listaInscricoes th {
+.listaRegistros  tr, .listaRegistros td, .listaRegistros th {
 	border: 1px solid #B0C4DE;
 	padding: 0px 5px;
 }
 
-.listaInscricoes tr, .listaInscricoes td {
+.listaRegistros tr, .listaRegistros td {
 	font-size: 16px;
 }
 
-.listaInscricoes tr:nth-child(even) {
+.listaRegistros tr:nth-child(even) {
 	background-color: #59acff;
 }
 
-.listaInscricoes tr:nth-child(odd) {
+.listaRegistros tr:nth-child(odd) {
 	background-color: #8cc6ff;
 }
 
-.listaInscricoes .acoes, .status {
+.listaRegistros .acoes, .status {
 	width: 70px;
 	text-align: left;
 }
 
-.listaInscricoes .idTabela {
+.listaRegistros .idTabela {
 	text-align: left;
 }
 
-.listaInscricoes .inscricaoTabela {
+.listaRegistros .inscricaoTabela {
 	text-align: left;
 }
 
 
-.listaInscricoes table img {
+.listaRegistros table img {
 	padding: 0 5px;
 	width: 20px;
 	height: 20px;

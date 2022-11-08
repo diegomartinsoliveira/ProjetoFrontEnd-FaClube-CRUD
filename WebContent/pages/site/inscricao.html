@@ -9,10 +9,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Twister HRC</title>
 <link rel="stylesheet" type="text/css" href="../../css/site.css">
+<link rel="stylesheet" type="text/css" href="../../css/jquery-ui.css">
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
   crossorigin="anonymous"></script>
+  <script src="../../js/jquery-ui.js"></script>
   <script src="../../js/site.js"></script>
 <script src="../../js/inscricao.js"></script>
 </head>
@@ -25,35 +27,38 @@
 		<h2 class="tituloInscricao">Inscreva-se no fã clube!</h2>
 		<p>Quer fazer parte do fã clube da Twister HRC? Preencha este
 			formulário!</p>
-		<form name="frminscricao" method="post" action="#" onsubmit="return validaInscricao()">
+		<form name="frmAddInscricao"  id="addInscricao" method="post" action="#">
 			<fieldset class="inscricao">
-				<legend>Dados pessoais:</legend>
-				<label for="nome">Nome: </label> <input type="text" name="txtnome"
-					id="nome"> <label for="fone">Telefone: </label> <input
-					type="text" name="txtfone" id="fone"> <label for="email">E-mail:
-				</label> <input type="email" name="txtemail" id="email">
-				<div>
-					<br> <label for="diaa">Data de nascimento:</label> <input
-						type="date" id="dia" name="nascimento"><br>
+					<legend>Dados pessoais:</legend>
+					<label for="nome">Nome: </label> 
+					<input type="text" name="txtnome" id="nome" placeholder="Nome e  Sobrenome"> 
+					<label for="fone">Telefone: </label> 
+					<input type="text" name="txtfone" id="fone" placeholder="DDD + Telefone"> 
+					<label for="email">E-mail: </label> 
+					<input type="email" name="txtemail" id="email" placeholder="email@email.com" required>
+					<br> 
+					<label for="diaa">Data de nascimento:</label> <input type="date" id="dia" name="nascimento">
+					<br>
 					<br>
 					<p class="txtgenero">Selecione seu gênero:</p>
-					<br> <input type="radio" id="genmasc" name="selgenero"
-						value="genmasc"> <label for="genmasc">Masculino</label><br>
-					<input type="radio" id="genfem" name="selgenero" value="genfem">
-					<label for="genfem">Feminino</label><br>
+					<br> 
+					<input type="radio" id="genmasc" name="selgenero" value="masculino"> <label for="genmasc">Masculino</label>
 					<br>
-				</div>
-				<label for="comentario">Comentário: </label>
-				<textarea name="txacomentario" id="comentario"></textarea>
-				<input type="checkbox" id="participa" name="participa"> <label
-					for="participa">Desejo participar do fã clube da Twister
-					HRC</label><br>
-				<br>
-				<button type="reset">Limpar</button>
-				<button type="submit" onclick="FACLUBE.inscricao.cadastrar()">Enviar</button>
+					<input type="radio" id="genfem" name="selgenero" value="feminino"> <label for="genfem">Feminino</label>
+					<br>
+					<br>
+					<label for="comentario">Comentário: </label>
+					<textarea name="txtcomentarios" id="comentario"></textarea>
+					<input type="checkbox" id="participa" name="participa" onclick="return validaCheckBox()"> <label for="participa">Desejo participar do fã clube da Twister
+					HRC</label>
+					<br>
+					<br>
+					<button type="reset">Limpar</button><button type="button" id="btCadastrar" onclick="FACLUBE.inscricao.cadastrar()" disabled>Enviar</button>
 			</fieldset>
+					<input type="hidden" name="idUsuario">
 		</form>
 	</section>
+					<div id="modalAviso"></div>
 	<footer></footer>
 </body>
 </html>

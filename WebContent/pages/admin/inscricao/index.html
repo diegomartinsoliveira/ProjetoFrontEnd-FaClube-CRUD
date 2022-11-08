@@ -1,4 +1,4 @@
-<script src="../../js/inscricao.js"></script>
+<script src="../../js/admin.js"></script>
 <h2>Registro de Inscrições</h2>
 <form name="frmAddInscricao" id="addInscricao" class="frmInserir">
 	<fieldset class="inscricao">
@@ -18,19 +18,19 @@
 			</tr>
 			<tr>
 				<th>Data de Nascimento</th>
-				<td><input type="text" name="nascimento"></td>
+				<td><input type="date" name="nascimento"></td>
 			</tr>
 			<tr>
 				<th>Gênero</th>
 				<td><select name="genero">
 						<option value="">Selecione</option>
-						<option value="1">Masculino</option>
-						<option value="2">Feminino</option>
+						<option value="masculino">Masculino</option>
+						<option value="feminino">Feminino</option>
 				</select></td>
 			</tr>
 			<tr>
 				<th>Comentários</th>
-				<td><input type="text" name="comentarios"></td>
+				<td><textarea name="comentarios"></textarea></td>
 			</tr>
 			<tr>
 				<td colspan="2">
@@ -45,14 +45,14 @@
 <form id="filtraProduto" class="frmFiltrar">
 	<fieldset class="filtro">
 		<legend>Filtrar</legend>
-		<input type="text" name="txtbusca" id="campoBuscaInscricao"
-			placeholder="Pesquise pelo modelo">
+		<input type="text" name="txtbusca" id="campoBuscaInscricao" placeholder="Pesquise pelo nome">
 		<button type="button" onclick="FACLUBE.inscricao.buscar()">Buscar</button>
 	</fieldset>
 </form>
-<div id="listaInscricoes" class="listaInscricoes"></div>
+<div id="listaInscricoes" class="listaRegistros"></div>
 <div id="modalEditaInscricao" class="modalEditar">
 	<form name="frmEditaInscricao" id="editaInscricao" class="frmEditar">
+	<fieldset class="inscricaoEditar">
 		<table>
 			<tr>
 				<th>Nome</th>
@@ -68,21 +68,23 @@
 			</tr>
 			<tr>
 				<th>Data de Nascimento</th>
-				<td><input type="text" name="nascimento"></td>
+				<td><input type="date" name="nascimento"></td>
 			</tr>
 			<tr>
 				<th>Gênero</th>
-				<td><select name="genero">
+				<td><select name="genero" id="selGeneroEdicao">
 						<option value="">Selecione</option>
-						<option value="1">Masculino</option>
-						<option value="2">Feminino</option>
+						<option value="masculino">Masculino</option>
+						<option value="feminino">Feminino</option>
 				</select></td>
 			</tr>
 			<tr>
 				<th>Comentários</th>
-				<td><input type="text" name="comentarios"></td>
+				<td><textarea name="comentarios"></textarea></td>
 			</tr>
 		</table>
 		<input type="hidden" name="idInscricao">
+		</fieldset>
 	</form>
+	
 </div>

@@ -8,9 +8,9 @@ public class Inscricao implements Serializable {
 
 	private int id;
 	private String nome;
-	private float telefone;
+	private String telefone;
 	private String email;
-	private float nascimento;
+	private String nascimento;
 	private String genero;
 	private String comentario;
 	
@@ -26,10 +26,10 @@ public class Inscricao implements Serializable {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public float getTelefone() {
+	public String getTelefone() {
 		return telefone;
 	}
-	public void setTelefone(float telefone) {
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
 	public String getEmail() {
@@ -38,10 +38,10 @@ public class Inscricao implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public float getNascimento() {
+	public String getNascimento() {
 		return nascimento;
 	}
-	public void setNascimento(float nascimento) {
+	public void setNascimento(String nascimento) {
 		this.nascimento = nascimento;
 	}
 	public String getGenero() {
@@ -56,4 +56,5 @@ public class Inscricao implements Serializable {
 	public void setComentario(String comentario) {
 		this.comentario = comentario;
 	}
+	
 }
